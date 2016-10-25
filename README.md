@@ -1,18 +1,36 @@
-# LAY'S FLAVOR SWAP - Frontend Build
+## Font-Password
 
-## Setting up node modules
-To setup the requisite node modules just run: `npm install`.
+Font-Password is an ultra lightweight script, created for inputs without type `password`.
 
-## Build frontend dependencies
-To pull in all required frontend dependencies, run: `bower install`.
+### How to use
 
-## Compile
-To compile all files to public/theme, run: `gulp`.
+In your javascript:
+```
+if('WebkitAppearance' in document.documentElement.style) document.documentElement.className += " webkit";
+```
 
-If you need live compiling (separately: images, fonts, js and scss), just run: `gulp watch`.
+In your css:
 
-To compile production version, just use `gulp release`.
+```
+/* fallback for no webkit browsers */
+@font-face {
+    font-family: 'pass-mono-400';
+    font-style: normal;
+    font-weight: 400;
+    src: url('pass-mono-400.woff2') format('woff2');
+}
+input.font-pass {
+    -webkit-text-security: disc; 
+}
+html:not(.webkit) input.font-pass {
+    font-family: 'pass-mono-400', monospace;
+    font-weight: 400;
+} 
+```
 
-To copy all files to distribution, run `gulp deploy_staging`.
+### Browser support
+Font-Password has been tested and works on the following browsers:
 
-[grzegorz@huncwot.com]
+* Chrome
+* Safari
+* Firefox
