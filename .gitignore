@@ -1,0 +1,10 @@
+*.log
+*.old
+.DS_Store
+*.swp
+
+private
+private/*
+
+*.sublime-project
+*.sublime-workspace
